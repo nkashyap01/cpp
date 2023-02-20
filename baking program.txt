@@ -1,0 +1,63 @@
+ 
+  /*wap to perform banking transaction operations withdrawal,deposit
+,check balance.follow the constraint.initial balance should be 1000.
+maintain minimum balance in account always 1000 rs*/
+#include <iostream>
+
+using namespace std;
+class bank
+{
+    private:
+    int amt=0,tamt=1000;
+    public:
+    void withdrawal()
+    {
+        cout<<"Enter amount to withdrawal";
+        cin>>amt;
+        if(tamt>=amt+1000)
+        {
+            cout<<"you are ready to withdrawal rs"<<amt;
+            tamt=tamt-amt;
+        }
+        else
+        {
+        cout<<" you have insufficient balance\n";
+        cout<<" you are able to withdrawal Rs"<<tamt-1000;
+        
+    }
+}
+void deposit()
+{
+    cout<<"Enter amount to deposit";
+    cin>>amt;
+    tamt=tamt+amt;
+}
+void check_balance()
+{
+    cout<<"your total balance is"<< tamt;
+}
+};
+
+int main()
+{
+    bank b;
+    int i,x;
+       cout<<"press 1 for withdrawl\n";
+    cout<<"press 2 for deposit\n";
+    cout<<"press 3 for check balance\n";
+    cout<<"press 4 for exit";
+    for(i=1;i<=4;i++)
+    {
+    cout<<"Enter your choice\n";
+    cin>>x;
+    switch(x)
+    {
+        case 1: b.withdrawal();break;
+        case 2: b.deposit();break;
+        case 3: b.check_balance();break;
+        case 4: exit(0);
+        default: cout<<"invalid choice";
+    }
+    }
+   return 0; 
+}

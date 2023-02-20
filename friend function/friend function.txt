@@ -1,0 +1,78 @@
+ #include<iostream>
+using namespace std;
+
+ class square;
+ class cube;
+
+class rectangle{
+
+    private:
+    int height;
+    int width;
+
+    public:
+   
+   friend void display(rectangle,square,cube);
+
+   void setdata(){
+    cout<<"Enter height : ";
+    cin>>height;
+    cout<<"Enter width : ";
+    cin>>width;
+   }
+
+};
+
+class square{
+
+    private:
+    int side;
+
+    public:
+     
+    friend void display(rectangle,square,cube);
+
+    void setdata(){
+        cout<<"Enter side : ";
+        cin>>side;
+    }
+
+};
+class cube{
+    private:
+    int side;
+    public :
+    friend void display(rectangle,square,cube);
+
+    void setdata(){
+        cout<<"Enter side : ";
+        cin>>side;
+    }
+};
+
+void display(rectangle r,square s,cube c){
+
+   float areaOfRectangle = r.height * r.width;
+   float areaOfSquare = s.side*s.side;
+   float areaOfcube = 6*c.side*c.side;
+
+    cout<<"Area of rectangle is : "<<areaOfRectangle<<endl;
+    cout<<"Area of square is : "<<areaOfSquare<<endl;
+    cout<<"Area of cube is : "<<areaOfcube<<endl;
+
+}
+                    
+int main(){
+
+     rectangle r;
+    r.setdata();
+
+    square s;
+    s.setdata();
+    cube c;
+    c.setdata();
+
+    display(r,s,c);
+
+return 0;
+}
